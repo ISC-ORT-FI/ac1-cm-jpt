@@ -4,7 +4,8 @@ resource "aws_vpc" "vpc-ac1" {
   enable_dns_hostnames = true
 
   tags = {
-    Name = "terraform-vpc-ac1"
+#    Name = "terraform-vpc-ac1"
+   Name = "vpc-ac1" 
   }
 }
 
@@ -14,7 +15,8 @@ resource "aws_subnet" "ac1-private-subnet" {
   availability_zone       = var.vpc_aws_az
   map_public_ip_on_launch = "true"
   tags = {
-    Name = "terraform-ac1-private-subnet"
+#    Name = "terraform-ac1-private-subnet"
+    Name = "ac1-private-subnet"
   }
 }
 
@@ -24,13 +26,15 @@ resource "aws_subnet" "ac1-private-subnet-2" {
   availability_zone       = var.vpc_aws_az-2
   map_public_ip_on_launch = "true"
   tags = {
-    Name = "terraform-ac1-private-subnet-2"
+#    Name = "terraform-ac1-private-subnet-2"
+    Name = "ac1-private-subnet-2"
   }
 }
 resource "aws_internet_gateway" "ac1-gw" {
   vpc_id = aws_vpc.vpc-ac1.id
   tags = {
-    Name = "terraform-ac1-gw"
+#    Name = "terraform-ac1-gw"
+    Name = "ac1-gw"
   }
 }
 
@@ -42,5 +46,6 @@ resource "aws_default_route_table" "ac1-route-table" {
   }
   tags = {
     Name = "default route table"
+     Name = "ac1-route-table"
   }
 }

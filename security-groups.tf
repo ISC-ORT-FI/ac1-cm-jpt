@@ -1,5 +1,6 @@
 resource "aws_security_group" "ac1-sg" {
-  name   = "terraform-ac1-sg"
+#  name   = "terraform-ac1-sg"
+  name   = "ac1-sg"
   vpc_id = aws_vpc.vpc-ac1.id
   ingress {
     from_port   = 22
@@ -20,12 +21,14 @@ resource "aws_security_group" "ac1-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "terraform-ac1-sg"
+#    Name = "terraform-ac1-sg"
+  Name = "ac1-sg"
   }
 }
 
 resource "aws_security_group" "ac1-lb-sg" {
-  name   = "terraform-ac1-lb-sg"
+#  name   = "terraform-ac1-lb-sg"
+  name   = "ac1-lb-sg"
   vpc_id = aws_vpc.vpc-ac1.id
   ingress {
     from_port   = 88
@@ -40,6 +43,6 @@ resource "aws_security_group" "ac1-lb-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "terraform-ac1-lb-sg"
+    Name = "ac1-lb-sg"
   }
 }
