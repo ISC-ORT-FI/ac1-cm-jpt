@@ -19,11 +19,11 @@ resource "aws_instance" "ac1-instance" {
   }
   provisioner "remote-exec" {
     inline = [
-      "yum install -y httpd git curl",
-      "git clone https://github.com/mauricioamendola/chaos-monkey-app.git",
-      "mv chaos-monkey-app/website/* /var/www/html/",
-      "systemctl enable httpd",
-      "systemctl start httpd",
+      "sudo yum install -y httpd git curl",
+      "sudo git clone https://github.com/mauricioamendola/chaos-monkey-app.git",
+      "sudo mv chaos-monkey-app/website/* /var/www/html/",
+      "sudo systemctl enable httpd",
+      "sudo systemctl start httpd",
     ]
   }
 }
